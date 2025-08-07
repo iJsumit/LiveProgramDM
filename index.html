@@ -1,335 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Full Stack Digital Marketing with AI - iJaipuria</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #7c3aed;
-            --secondary-color: #fbbf24;
-            --accent-color: #06b6d4;
-            --success-color: #10b981;
-            --danger-color: #ef4444;
-            --dark-color: #1f2937;
-            --light-color: #f8fafc;
-        }
+    <link rel="stylesheet" href="style.css" />
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-color), #a855f7);
-            min-height: 100vh;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200') center/cover;
-            opacity: 0.2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .gradient-text {
-            background: linear-gradient(45deg, var(--secondary-color), white, var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .badge-glow {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-        }
-
-        .card-elevated {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: none;
-        }
-
-        .card-elevated:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-hero {
-            background: linear-gradient(45deg, var(--secondary-color), #f59e0b);
-            border: none;
-            color: var(--dark-color);
-            font-weight: bold;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-hero:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3);
-            color: var(--dark-color);
-        }
-
-        .section-bg-primary {
-            background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
-            color: white;
-        }
-
-        .section-bg-light {
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-        }
-
-        .text-primary-custom {
-            color: var(--primary-color) !important;
-        }
-
-        .text-accent {
-            color: var(--accent-color) !important;
-        }
-
-        .bg-accent {
-            background-color: var(--accent-color) !important;
-        }
-
-        .floating-element {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .testimonial-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .quote-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: rgba(124, 58, 237, 0.2);
-            font-size: 2rem;
-        }
-
-        .roadmap-card {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .roadmap-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .phase-number {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            margin: 0 auto 1rem;
-        }
-
-        .bg-phase-1 { background-color: #3b82f6; }
-        .bg-phase-2 { background-color: #10b981; }
-        .bg-phase-3 { background-color: #8b5cf6; }
-        .bg-phase-4 { background-color: #f59e0b; }
-        .bg-phase-5 { background-color: #ef4444; }
-
-        .mentor-section {
-            background: var(--primary-color);
-            color: white;
-            position: relative;
-        }
-
-        .mentor-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .stats-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .stats-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .market-reality {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(6, 182, 212, 0.1));
-        }
-
-        .timeline-item {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .footer-section {
-            background: var(--dark-color);
-            color: white;
-        }
-
-        .accordion-button {
-            background: white;
-            border: none;
-            font-weight: 600;
-            color: var(--dark-color);
-        }
-
-        .accordion-button:not(.collapsed) {
-            background: white;
-            color: var(--primary-color);
-            box-shadow: none;
-        }
-
-        .accordion-item {
-            border: none;
-            background: white;
-            border-radius: 15px !important;
-            margin-bottom: 1rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-    </style>
 </head>
+
 <body>
+    <!-- HEADER SECTION -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#">
+                    <img src="images/logoWhite.png" alt="iJaipuria" class="header_logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center fw-bold">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#curriculum">Curriculum</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials">Testimonials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#faculties">Faculty</a>
+                        </li>
+                        <!-- <li class="nav-item">
+              <a href="brochure.pdf" download>
+                <button class="btn btn-primary ms-3 bg-orange border-0 ijbtn" disabled id="headerButton">Download
+                  Brochure</button>
+              </a>
+            </li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <!-- Hero Section -->
+
+
+
+
+    <!-- <section class="hero-section align-items-center">
+        <div class="overlay"></div>
+    </section> -->
+
+
+
+
+
     <section class="hero-section d-flex align-items-center">
+
         <div class="container hero-content">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-10">
-                    <!-- Top Badge -->
-                    <span class="badge badge-glow fs-6 mb-4 px-4 py-2">
-                        🎓 Built by iJaipuria — 80+ Years of Legacy in Education
-                    </span>
-                    
+
+
                     <!-- Main Headline -->
-                    <h1 class="display-1 fw-bold mb-4">
+                    <h1 class="display-2 fw-bold gradient-text">
                         FULL STACK<br>
-                        <span class="gradient-text">DIGITAL MARKETING</span><br>
-                        <span class="fs-1">WITH AI</span>
+                        <span class="">DIGITAL MARKETING</span><br>
+                        <span class="">WITH AI</span>
                     </h1>
-                    
+
                     <!-- Subheadline -->
-                    <p class="fs-3 mb-5 opacity-75">
-                        Learn Digital Marketing the 2025 Way — with GenAI at the Core
+                    <p class="fs-3 mb-5 bg-orange rounded">
+                        Built by iJaipuria — 80+ Years of Legacy in Education
                     </p>
-                    
-                    <!-- Key Points -->
-                    <div class="row g-3 mb-5 justify-content-center">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="badge-glow rounded p-3">
-                                <strong>Small Batch Sizes (50 Only)</strong>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="badge-glow rounded p-3">
-                                <strong>100+ Hours of Live Sessions</strong>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="badge-glow rounded p-3">
-                                <strong>Learn from Industry Leaders</strong>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="badge-glow rounded p-3">
-                                <strong>Placement Support That Works</strong>
-                            </div>
+
+
+                    <!-- Key Points Sumit Pandey  -->
+                    <div class="">
+                        <div class="keyPoints">
+                            <div class="badge-glow rounded p-3" id="keyPoint"></div>
                         </div>
                     </div>
-                    
-                    <!-- Program Details -->
-                    <div class="badge-glow rounded p-4 mb-5">
-                        <div class="row g-4 text-center">
-                            <div class="col-md-4">
-                                <h3 class="text-warning fw-bold mb-2">STARTS ON</h3>
-                                <p class="fs-2 fw-bold mb-1">5 OCTOBER 2025</p>
-                            </div>
-                            <div class="col-md-4">
-                                <h3 class="text-warning fw-bold mb-2">DURATION</h3>
-                                <p class="fs-2 fw-bold mb-1">10 WEEKS</p>
-                                <small class="opacity-75">(4–8 Hours/Week)</small>
-                            </div>
-                            <div class="col-md-4">
-                                <h3 class="text-warning fw-bold mb-2">PROGRAM FEE</h3>
-                                <p class="fs-2 fw-bold mb-1">₹49,999</p>
-                                <small class="opacity-75">NO COST EMI OPTIONS</small>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
-                            <span class="badge bg-accent px-3 py-2">Scholarships Available</span>
-                            <span class="badge bg-success px-3 py-2">Any Graduate Eligible</span>
-                            <span class="badge bg-danger px-3 py-2 pulse">SEATS FILLING FAST</span>
-                        </div>
-                    </div>
-                    
+
                     <!-- CTA Buttons -->
-                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mt-4">
                         <button class="btn btn-hero btn-lg px-5 py-3">SECURE YOUR SPOT NOW</button>
                         <button class="btn btn-outline-light btn-lg px-5 py-3">Download Brochure</button>
                     </div>
-                    
+
                     <p class="small mt-3 opacity-75">(GST Applicable)</p>
                 </div>
             </div>
@@ -342,9 +108,10 @@
             <div class="text-center mb-5">
                 <span class="badge bg-primary fs-6 px-4 py-2 mb-3">PROGRAM HIGHLIGHTS</span>
                 <h2 class="display-4 fw-bold mb-4">Why Choose Our Program?</h2>
-                <p class="fs-5 text-muted">Experience the perfect blend of academic excellence and industry relevance</p>
+                <p class="fs-5 text-muted">Experience the perfect blend of academic excellence and industry relevance
+                </p>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="card card-elevated h-100">
@@ -411,7 +178,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="text-center mt-5">
                 <h3 class="fw-bold mb-4">TRUSTED BY TOP RECRUITERS</h3>
                 <div class="row g-3 opacity-75">
@@ -458,30 +225,36 @@
                 <h2 class="display-4 fw-bold mb-4">This Isn't Just Another Course</h2>
                 <p class="fs-5 opacity-75">Experience a transformational approach to digital marketing education</p>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="mentor-card h-100">
                         <i class="fas fa-brain fs-1 text-warning mb-3"></i>
                         <h3 class="h5 fw-bold mb-3">Think Like a Growth Strategist</h3>
-                        <p class="text-warning opacity-75 mb-3">You Won't Just Learn How to Run Ads — You'll Learn to Think Like a Growth Strategist.</p>
-                        <small class="opacity-75">Frameworks, psychology, business impact — not just tools and tactics.</small>
+                        <p class="text-warning opacity-75 mb-3">You Won't Just Learn How to Run Ads — You'll Learn to
+                            Think Like a Growth Strategist.</p>
+                        <small class="opacity-75">Frameworks, psychology, business impact — not just tools and
+                            tactics.</small>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="mentor-card h-100">
                         <i class="fas fa-magic fs-1 text-warning mb-3"></i>
                         <h3 class="h5 fw-bold mb-3">GenAI at Your Fingertips</h3>
-                        <p class="text-warning opacity-75 mb-3">GenAI Isn't a Topic. It's in Your Toolkit from Day One.</p>
-                        <small class="opacity-75">Use AI to ideate, automate, test, and scale — like the top 1% of marketers.</small>
+                        <p class="text-warning opacity-75 mb-3">GenAI Isn't a Topic. It's in Your Toolkit from Day One.
+                        </p>
+                        <small class="opacity-75">Use AI to ideate, automate, test, and scale — like the top 1% of
+                            marketers.</small>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="mentor-card h-100">
                         <i class="fas fa-target fs-1 text-warning mb-3"></i>
                         <h3 class="h5 fw-bold mb-3">Build, Break, and Rebuild</h3>
-                        <p class="text-warning opacity-75 mb-3">You'll Build, Break, and Rebuild — That's Where the Mastery Happens.</p>
-                        <small class="opacity-75">Real briefs, messy constraints, marketing challenges that force growth.</small>
+                        <p class="text-warning opacity-75 mb-3">You'll Build, Break, and Rebuild — That's Where the
+                            Mastery Happens.</p>
+                        <small class="opacity-75">Real briefs, messy constraints, marketing challenges that force
+                            growth.</small>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -489,15 +262,18 @@
                         <i class="fas fa-bolt fs-1 text-warning mb-3"></i>
                         <h3 class="h5 fw-bold mb-3">Every Session is a Sprint</h3>
                         <p class="text-warning opacity-75 mb-3">Every Session Feels Like a Sprint. Because It Is.</p>
-                        <small class="opacity-75">Work on live brand scenarios, campaign strategy, analytics, and storytelling.</small>
+                        <small class="opacity-75">Work on live brand scenarios, campaign strategy, analytics, and
+                            storytelling.</small>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="mentor-card h-100">
                         <i class="fas fa-users fs-1 text-warning mb-3"></i>
                         <h3 class="h5 fw-bold mb-3">Real-World Practitioners</h3>
-                        <p class="text-warning opacity-75 mb-3">No Guru Gyaan. Only People Who've Done It in the Real World.</p>
-                        <small class="opacity-75">Your mentors? Operators with 7+ years in performance, branding, and growth.</small>
+                        <p class="text-warning opacity-75 mb-3">No Guru Gyaan. Only People Who've Done It in the Real
+                            World.</p>
+                        <small class="opacity-75">Your mentors? Operators with 7+ years in performance, branding, and
+                            growth.</small>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -518,9 +294,10 @@
             <div class="text-center mb-5">
                 <span class="badge bg-primary fs-6 px-4 py-2 mb-3">WHO IS THIS PROGRAM FOR?</span>
                 <h2 class="display-4 fw-bold mb-4">Built for Ambitious Professionals</h2>
-                <p class="fs-5 text-muted">Whether you're starting fresh or scaling up, this program meets you where you are</p>
+                <p class="fs-5 text-muted">Whether you're starting fresh or scaling up, this program meets you where you
+                    are</p>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="card card-elevated h-100">
@@ -531,7 +308,8 @@
                                 </div>
                                 <div>
                                     <h3 class="h4 fw-bold mb-2">Ambitious Graduates</h3>
-                                    <p class="text-muted">Launch your career with practical skills, AI-powered insights, and a portfolio that employers respect — even if you're starting fresh.</p>
+                                    <p class="text-muted">Launch your career with practical skills, AI-powered insights,
+                                        and a portfolio that employers respect — even if you're starting fresh.</p>
                                 </div>
                             </div>
                         </div>
@@ -546,8 +324,10 @@
                                 </div>
                                 <div>
                                     <h3 class="h4 fw-bold mb-2">Career Switchers</h3>
-                                    <small class="text-muted fw-medium d-block mb-2">(Non-Tech Backgrounds Welcome)</small>
-                                    <p class="text-muted">Too "late" or "non-digital" for a career pivot? This program resets your narrative and gives you a real competitive edge.</p>
+                                    <small class="text-muted fw-medium d-block mb-2">(Non-Tech Backgrounds
+                                        Welcome)</small>
+                                    <p class="text-muted">Too "late" or "non-digital" for a career pivot? This program
+                                        resets your narrative and gives you a real competitive edge.</p>
                                 </div>
                             </div>
                         </div>
@@ -563,7 +343,8 @@
                                 <div>
                                     <h3 class="h4 fw-bold mb-2">Working Professionals</h3>
                                     <small class="text-muted fw-medium d-block mb-2">With Limited Time</small>
-                                    <p class="text-muted">Weekend-optimized learning that fuels weekday confidence. Stay employed. Upgrade your skills. Unlock new roles.</p>
+                                    <p class="text-muted">Weekend-optimized learning that fuels weekday confidence. Stay
+                                        employed. Upgrade your skills. Unlock new roles.</p>
                                 </div>
                             </div>
                         </div>
@@ -578,14 +359,15 @@
                                 </div>
                                 <div>
                                     <h3 class="h4 fw-bold mb-2">Founders & Entrepreneurs</h3>
-                                    <p class="text-muted">Stop depending on agencies. Build in-house marketing muscle, automate outreach, and scale sustainably.</p>
+                                    <p class="text-muted">Stop depending on agencies. Build in-house marketing muscle,
+                                        automate outreach, and scale sustainably.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="text-center mt-5">
                 <h3 class="fw-bold mb-4">PREVIOUS BATCH DEMOGRAPHICS</h3>
                 <div class="card card-elevated mx-auto" style="max-width: 600px;">
@@ -622,7 +404,7 @@
                 <h2 class="display-4 fw-bold mb-4">Real Stories, Real Results</h2>
                 <p class="fs-5 text-muted">Don't just take our word for it — hear from our successful graduates</p>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="testimonial-card">
@@ -634,9 +416,12 @@
                             <i class="fas fa-star text-warning me-1"></i>
                             <i class="fas fa-star text-warning"></i>
                         </div>
-                        <p class="text-muted fst-italic mb-4">"I used to run campaigns without really knowing what was working. This course helped me understand digital metrics and strategy. Now, I confidently lead marketing decisions backed by data."</p>
+                        <p class="text-muted fst-italic mb-4">"I used to run campaigns without really knowing what was
+                            working. This course helped me understand digital metrics and strategy. Now, I confidently
+                            lead marketing decisions backed by data."</p>
                         <div class="d-flex align-items-center">
-                            <div class="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">P</div>
+                            <div class="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center me-3"
+                                style="width: 50px; height: 50px;">P</div>
                             <div>
                                 <h5 class="mb-0 fw-bold">Priya Sharma</h5>
                                 <small class="text-primary-custom">Marketing Strategist</small>
@@ -654,9 +439,12 @@
                             <i class="fas fa-star text-warning me-1"></i>
                             <i class="fas fa-star text-warning"></i>
                         </div>
-                        <p class="text-muted fst-italic mb-4">"AI felt way too complex at first. But step by step, I learned how to use it in my daily work. Today, I optimize every ad I run — and my ROI has never looked better."</p>
+                        <p class="text-muted fst-italic mb-4">"AI felt way too complex at first. But step by step, I
+                            learned how to use it in my daily work. Today, I optimize every ad I run — and my ROI has
+                            never looked better."</p>
                         <div class="d-flex align-items-center">
-                            <div class="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">K</div>
+                            <div class="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center me-3"
+                                style="width: 50px; height: 50px;">K</div>
                             <div>
                                 <h5 class="mb-0 fw-bold">Karan Desai</h5>
                                 <small class="text-primary-custom">AI-Driven Advertiser</small>
@@ -674,9 +462,12 @@
                             <i class="fas fa-star text-warning me-1"></i>
                             <i class="fas fa-star text-warning"></i>
                         </div>
-                        <p class="text-muted fst-italic mb-4">"As someone with a full-time job, I loved the weekend sessions. I could learn, practice, and grow — without burning out. A few months in, I got a raise and a bigger role."</p>
+                        <p class="text-muted fst-italic mb-4">"As someone with a full-time job, I loved the weekend
+                            sessions. I could learn, practice, and grow — without burning out. A few months in, I got a
+                            raise and a bigger role."</p>
                         <div class="d-flex align-items-center">
-                            <div class="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">T</div>
+                            <div class="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center me-3"
+                                style="width: 50px; height: 50px;">T</div>
                             <div>
                                 <h5 class="mb-0 fw-bold">Tanya Gupta</h5>
                                 <small class="text-primary-custom">Digital Lead</small>
@@ -694,9 +485,12 @@
                             <i class="fas fa-star text-warning me-1"></i>
                             <i class="fas fa-star text-warning"></i>
                         </div>
-                        <p class="text-muted fst-italic mb-4">"I was between jobs and unsure what to do next. This course gave me direction. Now I work independently with small businesses — and finally feel in control of my career."</p>
+                        <p class="text-muted fst-italic mb-4">"I was between jobs and unsure what to do next. This
+                            course gave me direction. Now I work independently with small businesses — and finally feel
+                            in control of my career."</p>
                         <div class="d-flex align-items-center">
-                            <div class="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">V</div>
+                            <div class="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center me-3"
+                                style="width: 50px; height: 50px;">V</div>
                             <div>
                                 <h5 class="mb-0 fw-bold">Vikram Reddy</h5>
                                 <small class="text-primary-custom">Freelance Consultant</small>
@@ -738,14 +532,14 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Roadmap Section -->
             <div class="text-center mb-5">
                 <span class="badge bg-primary fs-6 px-4 py-2 mb-3">ROADMAP TO SUCCESS</span>
                 <h2 class="display-4 fw-bold mb-4">Your 10-Week Journey</h2>
                 <p class="fs-5 text-muted">A structured path from beginner to industry-ready professional</p>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-lg-2 col-md-4 col-sm-6">
                     <div class="roadmap-card">
@@ -799,7 +593,7 @@
                 <h2 class="display-4 fw-bold mb-4">Learn from the Best</h2>
                 <p class="fs-5 opacity-75">Industry expertise meets practical teaching</p>
             </div>
-            
+
             <div class="mentor-card mx-auto" style="max-width: 800px;">
                 <div class="row g-4 align-items-center">
                     <div class="col-md-4 text-center">
@@ -814,11 +608,16 @@
                     </div>
                     <div class="col-md-8">
                         <h3 class="h2 fw-bold mb-2">Rupshanker Mishra</h3>
-                        <div class="text-warning h5 mb-4">Digital Growth Strategist | SaaS Marketing Expert | Entrepreneur</div>
-                        <p class="mb-4 opacity-75">With 7+ years across B2B and D2C marketing, Rupshanker has scaled multiple startups and trained 10,000+ professionals. As the Co-Founder of Mediaffix and former Head of Marketing at Edmingle, he knows what truly moves the digital needle.</p>
+                        <div class="text-warning h5 mb-4">Digital Growth Strategist | SaaS Marketing Expert |
+                            Entrepreneur</div>
+                        <p class="mb-4 opacity-75">With 7+ years across B2B and D2C marketing, Rupshanker has scaled
+                            multiple startups and trained 10,000+ professionals. As the Co-Founder of Mediaffix and
+                            former Head of Marketing at Edmingle, he knows what truly moves the digital needle.</p>
                         <div class="bg-warning bg-opacity-20 rounded-3 p-4 mb-4">
                             <i class="fas fa-quote-left text-warning fs-3 mb-3"></i>
-                            <p class="h5 fst-italic mb-0">"Everything I teach is battle-tested. These aren't playbook theories — these are strategies that have helped businesses go from zero to millions."</p>
+                            <p class="h5 fst-italic mb-0">"Everything I teach is battle-tested. These aren't playbook
+                                theories — these are strategies that have helped businesses go from zero to millions."
+                            </p>
                         </div>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge bg-warning text-dark">7+ Years Experience</span>
@@ -839,7 +638,7 @@
                 <h2 class="display-4 fw-bold mb-4">While You're Deciding, Others Are Transforming</h2>
                 <p class="fs-5 text-muted">The digital marketing landscape is evolving rapidly — and so should you</p>
             </div>
-            
+
             <!-- Stats Grid -->
             <div class="row g-4 mb-5">
                 <div class="col-lg-3 col-md-6">
@@ -871,13 +670,14 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Market Reality Check -->
             <div class="mb-5">
                 <h3 class="h2 fw-bold text-center mb-4">MARKET REALITY CHECK</h3>
                 <div class="timeline-item">
                     <div class="fs-4 fw-bold text-success">📍 TODAY:</div>
-                    <p class="mb-0 text-muted fs-5">Brands are actively hiring and struggling to find skilled, AI-ready marketers</p>
+                    <p class="mb-0 text-muted fs-5">Brands are actively hiring and struggling to find skilled, AI-ready
+                        marketers</p>
                 </div>
                 <div class="timeline-item">
                     <div class="fs-4 fw-bold text-warning">📍 6 MONTHS:</div>
@@ -888,7 +688,7 @@
                     <p class="mb-0 text-muted fs-5">Market saturation begins, premium roles shrink</p>
                 </div>
             </div>
-            
+
             <!-- CTA -->
             <div class="text-center">
                 <div class="card card-elevated mx-auto" style="max-width: 500px;">
@@ -910,60 +710,71 @@
                 <h2 class="display-4 fw-bold mb-4">Got Questions? We've Got Answers</h2>
                 <p class="fs-5 text-muted">Everything you need to know about the program</p>
             </div>
-            
+
             <div class="mx-auto" style="max-width: 800px;">
                 <div class="accordion" id="faqAccordion">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne">
                                 Can I manage this with my full-time job?
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                             <div class="accordion-body text-muted">
-                                Absolutely! Our weekend-optimized schedule is designed for working professionals. 70% of our successful graduates completed the program while working full-time.
+                                Absolutely! Our weekend-optimized schedule is designed for working professionals. 70% of
+                                our successful graduates completed the program while working full-time.
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo">
                                 What if I have no technical background?
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body text-muted">
-                                Perfect! We start from absolute basics. Many of our top performers came from non-technical backgrounds like sales, finance, and operations.
+                                Perfect! We start from absolute basics. Many of our top performers came from
+                                non-technical backgrounds like sales, finance, and operations.
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree">
                                 How does the placement assistance work?
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body text-muted">
-                                We support you beyond the classroom with personalized resume optimization, mock interview prep, salary negotiation guidance, and exclusive interview opportunities with our hiring partners.
+                                We support you beyond the classroom with personalized resume optimization, mock
+                                interview prep, salary negotiation guidance, and exclusive interview opportunities with
+                                our hiring partners.
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour">
                                 What makes this different from online courses?
                             </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body text-muted">
-                                Experience live expert sessions, hands-on business projects, 100% placement support, campus immersion, and a vibrant peer network — all delivered with academic rigor and personalised one-on-one mentorship.
+                                Experience live expert sessions, hands-on business projects, 100% placement support,
+                                campus immersion, and a vibrant peer network — all delivered with academic rigor and
+                                personalised one-on-one mentorship.
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive">
                                 Is there any EMI option available?
                             </button>
                         </h2>
@@ -984,7 +795,8 @@
             <div class="row g-4">
                 <div class="col-lg-4">
                     <h5 class="fw-bold mb-4">iJaipuria Digital Marketing Program</h5>
-                    <p class="text-light opacity-75">Transforming careers through cutting-edge digital marketing education with AI integration.</p>
+                    <p class="text-light opacity-75">Transforming careers through cutting-edge digital marketing
+                        education with AI integration.</p>
                     <div class="d-flex gap-3">
                         <a href="#" class="text-light"><i class="fab fa-facebook fs-4"></i></a>
                         <a href="#" class="text-light"><i class="fab fa-twitter fs-4"></i></a>
@@ -1012,88 +824,23 @@
                 </div>
                 <div class="col-lg-4">
                     <h6 class="fw-bold mb-3">Contact Information</h6>
-                    <p class="text-light opacity-75 mb-2"><i class="fas fa-envelope me-2"></i> admissions@ijaipuria.ac.in</p>
+                    <p class="text-light opacity-75 mb-2"><i class="fas fa-envelope me-2"></i>
+                        admissions@ijaipuria.ac.in</p>
                     <p class="text-light opacity-75 mb-2"><i class="fas fa-phone me-2"></i> +91 1234567890</p>
                     <p class="text-light opacity-75"><i class="fas fa-map-marker-alt me-2"></i> Noida, UP, India</p>
                 </div>
             </div>
             <hr class="my-4 opacity-25">
             <div class="text-center">
-                <p class="text-light opacity-50 mb-0">&copy; 2025 iJaipuria. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p class="text-light opacity-50 mb-0">&copy; 2025 iJaipuria. All rights reserved. | Privacy Policy |
+                    Terms of Service</p>
             </div>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JavaScript -->
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Add scroll effect to floating elements
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelectorAll('.floating-element');
-            
-            parallax.forEach(element => {
-                const speed = 0.5;
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-
-        // Button hover effects
-        document.querySelectorAll('.btn-hero').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px)';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Card hover animations
-        document.querySelectorAll('.card-elevated').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and sections
-        document.querySelectorAll('.card, .stats-card, .testimonial-card, .roadmap-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
+
 </html>
