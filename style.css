@@ -13,6 +13,12 @@ body {
     line-height: 1.6;
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
+
+
 .bg-orange {
     background: #FF8000;
 }
@@ -65,31 +71,7 @@ a.header_logo:focus-visible {
     color: white;
     position: relative;
     overflow: hidden;
-    
-    z-index: 0;
-    /* -webkit-backdrop-filter: blur(10px); */
 }
-
-/* .hero-section {
-  position: relative;
-  width: auto;
-  height: 70vh;
-  margin-top: 90px;
-  background: url('images/heroBanner.jpg') center top/cover no-repeat;
-  background-attachment: fixed;
-  z-index: 1;
-}
-
-.hero-section .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--dark-color), #a855f7);
-  pointer-events: none;
-  z-index: 2;
-} */
 
 .hero-section h1 {
     padding: 100px 0 30px 0;
@@ -103,7 +85,6 @@ a.header_logo:focus-visible {
     right: 0;
     bottom: 0;
     background: url('images/heroBanner.jpg') center top/cover no-repeat;
-    /* opacity: 0.5; */
     filter: blur(6px);
 
 }
@@ -120,9 +101,29 @@ a.header_logo:focus-visible {
     background-clip: text;
 }
 
+.keyPoints,
+.Subheadline {
+    opacity: 0;
+    transform: translateX(50px) scale(0.98);
+    animation: slideInSmooth 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/* Animation keyframes */
+@keyframes slideInSmooth {
+    0% {
+        opacity: 0;
+        transform: translateX(50px) scale(0.98);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+
 #keyPoint {
     display: flex;
-    /* flex-wrap: wrap; */
     flex-direction: column;
     gap: 10px;
 }
@@ -227,6 +228,237 @@ a.header_logo:focus-visible {
     }
 }
 
+/* Info Sectio  */
+.info-section i {
+    color: #FF8000;
+    font-size: 40px;
+}
+
+.discountPrice {
+    font-size: 20px;
+}
+
+/* Optional: Add vertical dividers for large screens */
+@media (min-width: 768px) {
+    .info-section .border-md-start {
+        border-left: 1px solid #ddd;
+        padding-left: 1.5rem;
+    }
+}
+
+/* Deadline Section  */
+.deadline-section {
+    background-color: #ff8000;
+}
+
+.deadline-section h2 {
+    display: inline-block;
+    animation: zoomInOut 4s ease-in-out infinite;
+}
+
+/* Keyframes for zoom in and out */
+@keyframes zoomInOut {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+}
+
+
+/* Popup Background Overlay */
+.ija-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999999;
+}
+
+/* Popup Box */
+.ija-popup-content {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 35vw;
+    position: relative;
+    animation: popupFade 0.3s ease;
+}
+
+/* Close Button */
+.ija-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.ija-close-btn:hover {
+    color: #FF8000;
+}
+
+/* Form Styles */
+.ija-form-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #122E5D;
+}
+
+.ija-popup-form input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.ija-popup-form button {
+    background: linear-gradient(90deg, #FF8000, #7C3AED);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: opacity 0.3s ease;
+}
+
+.ija-popup-form button:hover {
+    opacity: 0.85;
+}
+
+/* Animation */
+@keyframes popupFade {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Top Recruiters  */
+
+.marquee-track {
+    margin-top: 4rem;
+    display: flex;
+    width: max-content;
+    animation: scroll-left 30s linear infinite;
+    will-change: transform;
+}
+
+.marquee-track img {
+    height: 90px;
+    margin: 0 30px;
+    padding: 5px;
+    vertical-align: middle;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.marquee-track img:hover {
+    transform: scale(1.1);
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .marquee-track img {
+        height: 100px;
+        margin: 0 20px;
+    }
+}
+
+/* Tools Section  */
+/* Section Badge */
+.section-badge {
+    background: linear-gradient(45deg, #FF8000, #7C3AED);
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+}
+
+/* Tool Cards */
+.tool-card {
+    background: #fff;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: #FF8000;
+}
+
+/* Tool Logos */
+.tool-logo {
+    height: 40px;
+    max-width: 60px;
+    object-fit: contain;
+}
+
+/* pie chart  */
+.ija-demographics {
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.7),   /* Top overlay color */
+      rgba(0, 0, 0, 0.7)    /* Bottom overlay color */
+    ), url('images/piechart.jpg') center top/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#audiencePieChart {
+    width: 35vw !important;
+    height: auto !important;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .who-demographics .row {
+        flex-direction: column;
+    }
+
+    .pieChartMobileHeading {
+        padding-top: 30px;
+    }
+}
+
+
+
 .testimonial-card {
     background: white;
     border-radius: 20px;
@@ -247,6 +479,7 @@ a.header_logo:focus-visible {
     right: 20px;
     color: rgba(124, 58, 237, 0.2);
     font-size: 2rem;
+    transform: scaleX(-1);
 }
 
 .roadmap-card {
