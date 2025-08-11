@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-K6VS5DPM');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Full Stack Digital Marketing with AI - iJaipuria</title>
@@ -13,12 +23,16 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6VS5DPM" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
     <!-- Popup Overlay -->
-    <div class="ija-popup-overlay" id="ijaPopup">
+    <div class="ija-popup-overlay" id="ijaPopup" style="display: none;">
         <div class="ija-popup-content">
             <span class="ija-close-btn" id="closeFormBtn">&times;</span>
             <h2 class="ija-form-title">Register Now</h2>
-            <form class="ija-popup-form">
+            <form class="ija-popup-form" action="mail.php" method="POST">
                 <div class="row g-3">
                     <input type="hidden" name="utm_source" id="utm_source" />
                     <input type="hidden" name="utm_medium" id="utm_medium" />
@@ -61,19 +75,16 @@
             </form>
         </div>
     </div>
-    <!-- Hidden Thank You Message -->
-    <div id="thank-you-message" class="thank-you-card text-center" style="display: none;">
-        <div class="thank-you-icon mb-3">
-            <i class="bi bi-patch-check-fill"></i>
+    <!-- Thank You Popup -->
+    <div id="thank-you-popup" class="thank-you-popup" style="display:none;">
+        <div class="thank-you-content position-relative">
+            <span class="ija-close-btn" id="closeThanksBtn">&times;</span>
+            <h2>Thank you!</h2>
+            <p>Your submission has been received. We'll contact you soon.</p>
+            <a id="close-popup-btn" href="brochure.pdf" download>Download Brochure</a>
         </div>
-        <h3 class="thank-you-heading">Thank You for Registering!</h3>
-        <p class="thank-you-subheading">
-            Your submission has been received. <br> Our team will reach out to you shortly.
-        </p>
-        <a href="brochure.pdf" download><button type="button" class="btn btn-primary w-100">Download
-                Brochure</button></a>
-
     </div>
+
     <!-- HEADER SECTION -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top">
@@ -130,10 +141,8 @@
 
                     <!-- CTA Buttons -->
                     <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mt-4 mb-5">
-                        <button class="btn btn-hero btn-lg px-5 py-3 w-50" id="openFormBtn">
-                            SECURE YOUR SPOT NOW
-                        </button>
-                        <!-- <button class="btn btn-outline-light btn-lg px-5 py-3">Download Brochure</button> -->
+                        <button class="btn btn-hero btn-lg px-5 py-3 w-50" id="openFormBtn">SECURE YOUR SPOT
+                            NOW</button>
                     </div>
                 </div>
             </div>

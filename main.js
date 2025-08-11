@@ -100,34 +100,44 @@ document.querySelectorAll('.card, .stats-card, .testimonial-card, .roadmap-card'
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const openBtn = document.getElementById("openFormBtn");
+  const form = document.querySelector(".ija-popup-overlay");
+  const popup = document.getElementById("thank-you-popup");
   const closeBtn = document.getElementById("closeFormBtn");
-  const popup = document.getElementById("ijaPopup");
+  const closeThanksBtn = document.getElementById("closeThanksBtn");
+  const openBtn = document.getElementById("openFormBtn");
+  // const brochure = document.getElementById("close-popup-btn");
 
-  // Open Popup
   openBtn.addEventListener("click", function () {
-    popup.style.display = "flex";
+    form.style.display = "flex"
   });
-
   // Close Popup on X
   closeBtn.addEventListener("click", function () {
+    form.style.display = "none";
+  });
+
+  closeThanksBtn.addEventListener("click", function () {
     popup.style.display = "none";
   });
 
   // Close Popup if Click Outside
   window.addEventListener("click", function (e) {
     if (e.target === popup) {
-      popup.style.display = "none";
+      form.style.display = "none";
     }
   });
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    // openBtn.style.display = "none";
-    // submitBtn.innerText = "Submitting...";
-    // sessionStorage.setItem("formSubmitted", "true");
-  });
-});
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Hide form
+      form.style.display = "none";
+
+      // Show popup
+      popup.style.display = "flex";
+    });
+  }});
+
 
 
 
