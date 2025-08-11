@@ -121,10 +121,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  form.addEventListener("submit", function () {
-    openBtn.style.display = "none";
-    submitBtn.innerText = "Submitting...";
-    sessionStorage.setItem("formSubmitted", "true");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    // openBtn.style.display = "none";
+    // submitBtn.innerText = "Submitting...";
+    // sessionStorage.setItem("formSubmitted", "true");
   });
 });
 
