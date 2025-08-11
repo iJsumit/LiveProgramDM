@@ -32,7 +32,7 @@
         <div class="ija-popup-content">
             <span class="ija-close-btn" id="closeFormBtn">&times;</span>
             <h2 class="ija-form-title">Register Now</h2>
-            <form class="ija-popup-form" action="mail.php" method="POST">
+            <form class="ija-popup-form" id="theForm">
                 <div class="row g-3">
                     <input type="hidden" name="utm_source" id="utm_source" />
                     <input type="hidden" name="utm_medium" id="utm_medium" />
@@ -54,7 +54,7 @@
                         <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required />
                     </div>
                     <div class="col-md-6">
-                        <select name="mx_Experience_Level" class="form-control" required>
+                        <select name="experience" class="form-control" required>
                             <option value="" disabled selected>Experience</option>
                             <!-- <option value="graduate">Graduate</option> -->
                             <option value="zero_two">0&ndash;2 years</option>

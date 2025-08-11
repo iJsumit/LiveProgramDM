@@ -99,44 +99,142 @@ document.querySelectorAll('.card, .stats-card, .testimonial-card, .roadmap-card'
   observer.observe(el);
 });
 
+
+
+// Get Form Data 
+// document.addEventListener("DOMContentLoaded", function () {
+//   const form = document.querySelector(".ija-popup-overlay");
+//   const popup = document.getElementById("thank-you-popup");
+//   const closeBtn = document.getElementById("closeFormBtn");
+//   const closeThanksBtn = document.getElementById("closeThanksBtn");
+//   const openBtn = document.getElementById("openFormBtn");
+//   // const brochure = document.getElementById("close-popup-btn");
+
+//   openBtn.addEventListener("click", function () {
+//     form.style.display = "flex"
+//   });
+//   // Close Popup on X
+//   closeBtn.addEventListener("click", function () {
+//     form.style.display = "none";
+//   });
+
+//   closeThanksBtn.addEventListener("click", function () {
+//     popup.style.display = "none";
+//   });
+
+//   // Close Popup if Click Outside
+//   window.addEventListener("click", function (e) {
+//     if (e.target === popup) {
+//       form.style.display = "none";
+//     }
+//   });
+
+  // if (form) {
+  //   form.addEventListener("submit", function (e) {
+  //     e.preventDefault();
+
+  //     // Hide form
+  //     form.style.display = "none";
+
+  //     // Show popup
+  //     popup.style.display = "flex";
+  //   });
+  // }
+// });
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   document.getElementById("ija-popup-form").addEventListener("submit", function (e) {
+//     e.preventDefault();
+
+//     const formData = new FormData(this);
+
+//     // Log values in console
+//     for (let [key, value] of formData.entries()) {
+//       console.log(`${key}: ${value}`);
+//     }
+//     console.log(formData);
+
+//     // Send via POST to PHP
+//     fetch("mail.php", {
+//       method: "POST",
+//       body: formData
+//     })
+//       .then(res => res.text())
+//       .then(data => console.log("Server Response:", data))
+//       .catch(err => console.error("Error:", err));
+
+//   }
+//   );
+// })
+
+
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector(".ija-popup-overlay");
-  const popup = document.getElementById("thank-you-popup");
-  const closeBtn = document.getElementById("closeFormBtn");
+  // Grab elements
+  const formOverlay = document.querySelector(".ija-popup-overlay");
+  const thankYouPopup = document.getElementById("thank-you-popup");
+  const closeFormBtn = document.getElementById("closeFormBtn");
   const closeThanksBtn = document.getElementById("closeThanksBtn");
-  const openBtn = document.getElementById("openFormBtn");
-  // const brochure = document.getElementById("close-popup-btn");
+  const openFormBtn = document.getElementById("openFormBtn");
+  const form = document.querySelector("#theForm"); // Your form's ID
 
-  openBtn.addEventListener("click", function () {
-    form.style.display = "flex"
-  });
-  // Close Popup on X
-  closeBtn.addEventListener("click", function () {
-    form.style.display = "none";
-  });
+  // Helper: Show/Hide popups
+  const showPopup = (el) => el && (el.style.display = "flex");
+  const hidePopup = (el) => el && (el.style.display = "none");
 
-  closeThanksBtn.addEventListener("click", function () {
-    popup.style.display = "none";
-  });
+  // Open form popup
+  if (openFormBtn && formOverlay) {
+    openFormBtn.addEventListener("click", function () {
+      showPopup(formOverlay);
+    });
+  }
 
-  // Close Popup if Click Outside
-  window.addEventListener("click", function (e) {
-    if (e.target === popup) {
-      form.style.display = "none";
-    }
-  });
+  // Close form popup
+  if (closeFormBtn && formOverlay) {
+    closeFormBtn.addEventListener("click", function () {
+      hidePopup(formOverlay);
+    });
+  }
 
+  // Close thank-you popup
+  if (closeThanksBtn && thankYouPopup) {
+    closeThanksBtn.addEventListener("click", function () {
+      hidePopup(thankYouPopup);
+    });
+  }
+
+  // Handle form submission
   if (form) {
     form.addEventListener("submit", function (e) {
-      e.preventDefault();
+      e.preventDefault(); // Stop page reload
 
-      // Hide form
-      form.style.display = "none";
+      const formData = new FormData(form);
 
-      // Show popup
-      popup.style.display = "flex";
+      console.log(formData);
+      
+
+      fetch("mail.php", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          console.log("Server Response:", data);
+          hidePopup(formOverlay);
+          showPopup(thankYouPopup);
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("Something went wrong. Please try again.");
+        });
     });
-  }});
+  }
+});
+
+
+
+
 
 
 

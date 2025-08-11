@@ -91,12 +91,14 @@ curl_close($ch);
 
 // Step 5: Debug output
 if ($httpCode === 200) {
-    header("Location: index.html");
+    // header("Location: index.html");
+    echo "Success";
     exit();
 } else {
     // For debug only — remove in production
     // echo "Something went wrong!<br>";
     // echo htmlspecialchars($response); // Prevents HTML injection
-    header("Location: error.html");
+    // header("Location: error.html");
+    echo "Wrong";
     exit();
 }
