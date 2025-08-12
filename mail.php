@@ -78,27 +78,9 @@ $response = curl_exec($ch);
 $httpCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-// // Step 5: Debug output
-// if ($httpCode === 200) {
-//     header("Location: index.html");
-//     exit();
-// } else {
-//     // echo "Something Went Wrong ! Please Try Again " . $response;
-//     // header("Location: error.html");
-//     echo $response;
-//     // exit();
-// }
-
-// Step 5: Debug output
-if ($httpCode === 200) {
-    // header("Location: index.html");
-    echo "Success";
-    exit();
-} else {
-    // For debug only — remove in production
-    // echo "Something went wrong!<br>";
-    // echo htmlspecialchars($response); // Prevents HTML injection
-    // header("Location: error.html");
-    echo "Wrong";
-    exit();
-}
+// Return as JSON
+header('Content-Type: application/json');
+echo json_encode([
+    'statusCode' => $httpCode,
+    'apiResponse' => $response
+]);

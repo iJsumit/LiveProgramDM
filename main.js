@@ -1,9 +1,9 @@
 const keyPoints = [
-  'Learn Digital Marketing the 2025 Way — with GenAI at the Core',
-  'Small Batch Sizes (50 Only)',
-  'Learn from Industry Leaders with 100% Live Doubt-Solving',
-  '100+ Hours of Live Sessions and Real-World Projects',
-  'Placement Support That Actually Works'
+  "Learn Digital Marketing the 2025 Way — with GenAI at the Core",
+  "Small Batch Sizes (50 Only)",
+  "Learn from Industry Leaders with 100% Live Doubt-Solving",
+  "100+ Hours of Live Sessions and Real-World Projects",
+  "Placement Support That Actually Works",
 ];
 
 const fileExtensions = {
@@ -35,140 +35,72 @@ const fileExtensions = {
 };
 
 const container = document.getElementById("keyPoint");
-keyPoints.forEach(text => {
+keyPoints.forEach((text) => {
   const box = document.createElement("strong");
   box.className = "badge-glow rounded p-3 text-dark";
   box.innerText = text;
   container.appendChild(box);
 });
 
-
 // Add scroll effect to floating elements
-window.addEventListener('scroll', () => {
+window.addEventListener("scroll", () => {
   const scrolled = window.pageYOffset;
-  const parallax = document.querySelectorAll('.floating-element');
+  const parallax = document.querySelectorAll(".floating-element");
 
-  parallax.forEach(element => {
+  parallax.forEach((element) => {
     const speed = 0.5;
     element.style.transform = `translateY(${scrolled * speed}px)`;
   });
 });
 
 // Button hover effects
-document.querySelectorAll('.btn-hero').forEach(button => {
-  button.addEventListener('mouseenter', function () {
-    this.style.transform = 'translateY(-2px)';
+document.querySelectorAll(".btn-hero").forEach((button) => {
+  button.addEventListener("mouseenter", function () {
+    this.style.transform = "translateY(-2px)";
   });
 
-  button.addEventListener('mouseleave', function () {
-    this.style.transform = 'translateY(0)';
+  button.addEventListener("mouseleave", function () {
+    this.style.transform = "translateY(0)";
   });
 });
 
 // Card hover animations
-document.querySelectorAll('.card-elevated').forEach(card => {
-  card.addEventListener('mouseenter', function () {
-    this.style.transform = 'translateY(-5px)';
+document.querySelectorAll(".card-elevated").forEach((card) => {
+  card.addEventListener("mouseenter", function () {
+    this.style.transform = "translateY(-5px)";
   });
 
-  card.addEventListener('mouseleave', function () {
-    this.style.transform = 'translateY(0)';
+  card.addEventListener("mouseleave", function () {
+    this.style.transform = "translateY(0)";
   });
 });
 
 // Intersection Observer for animations
 const observerOptions = {
   threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
+  rootMargin: "0px 0px -50px 0px",
 };
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
     }
   });
 }, observerOptions);
 
 // Observe all cards and sections
-document.querySelectorAll('.card, .stats-card, .testimonial-card, .roadmap-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'all 0.6s ease';
-  observer.observe(el);
-});
+document
+  .querySelectorAll(".card, .stats-card, .testimonial-card, .roadmap-card")
+  .forEach((el) => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "all 0.6s ease";
+    observer.observe(el);
+  });
 
-
-
-// Get Form Data 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const form = document.querySelector(".ija-popup-overlay");
-//   const popup = document.getElementById("thank-you-popup");
-//   const closeBtn = document.getElementById("closeFormBtn");
-//   const closeThanksBtn = document.getElementById("closeThanksBtn");
-//   const openBtn = document.getElementById("openFormBtn");
-//   // const brochure = document.getElementById("close-popup-btn");
-
-//   openBtn.addEventListener("click", function () {
-//     form.style.display = "flex"
-//   });
-//   // Close Popup on X
-//   closeBtn.addEventListener("click", function () {
-//     form.style.display = "none";
-//   });
-
-//   closeThanksBtn.addEventListener("click", function () {
-//     popup.style.display = "none";
-//   });
-
-//   // Close Popup if Click Outside
-//   window.addEventListener("click", function (e) {
-//     if (e.target === popup) {
-//       form.style.display = "none";
-//     }
-//   });
-
-  // if (form) {
-  //   form.addEventListener("submit", function (e) {
-  //     e.preventDefault();
-
-  //     // Hide form
-  //     form.style.display = "none";
-
-  //     // Show popup
-  //     popup.style.display = "flex";
-  //   });
-  // }
-// });
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   document.getElementById("ija-popup-form").addEventListener("submit", function (e) {
-//     e.preventDefault();
-
-//     const formData = new FormData(this);
-
-//     // Log values in console
-//     for (let [key, value] of formData.entries()) {
-//       console.log(`${key}: ${value}`);
-//     }
-//     console.log(formData);
-
-//     // Send via POST to PHP
-//     fetch("mail.php", {
-//       method: "POST",
-//       body: formData
-//     })
-//       .then(res => res.text())
-//       .then(data => console.log("Server Response:", data))
-//       .catch(err => console.error("Error:", err));
-
-//   }
-//   );
-// })
-
-
+// Form Logic
 document.addEventListener("DOMContentLoaded", function () {
   // Grab elements
   const formOverlay = document.querySelector(".ija-popup-overlay");
@@ -176,68 +108,89 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeFormBtn = document.getElementById("closeFormBtn");
   const closeThanksBtn = document.getElementById("closeThanksBtn");
   const openFormBtn = document.getElementById("openFormBtn");
-  const form = document.querySelector("#theForm"); // Your form's ID
+  const form = document.getElementById("theForm");
 
   // Helper: Show/Hide popups
   const showPopup = (el) => el && (el.style.display = "flex");
   const hidePopup = (el) => el && (el.style.display = "none");
 
   // Open form popup
-  if (openFormBtn && formOverlay) {
-    openFormBtn.addEventListener("click", function () {
-      showPopup(formOverlay);
-    });
+  if (openFormBtn) {
+    openFormBtn.addEventListener("click", () => showPopup(formOverlay));
   }
 
   // Close form popup
-  if (closeFormBtn && formOverlay) {
-    closeFormBtn.addEventListener("click", function () {
-      hidePopup(formOverlay);
-    });
+  if (closeFormBtn) {
+    closeFormBtn.addEventListener("click", () => hidePopup(formOverlay));
   }
 
   // Close thank-you popup
-  if (closeThanksBtn && thankYouPopup) {
-    closeThanksBtn.addEventListener("click", function () {
-      hidePopup(thankYouPopup);
-    });
+  if (closeThanksBtn) {
+    closeThanksBtn.addEventListener("click", () => hidePopup(thankYouPopup));
   }
 
-  // Handle form submission
+  // Form submission (validation + sending)
   if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault(); // Stop page reload
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault(); // Always stop default until validation passes
 
+      // Regex patterns
+      const nameRegex = /^[A-Za-z\s]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phoneRegex = /^[6-9]\d{9}$/;
+
+      // Values
+      const fName = form.fName.value.trim();
+      const lName = form.lName.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+
+      // Validation
+      if (!nameRegex.test(fName) || !nameRegex.test(lName)) {
+        alert("Names must contain only letters.");
+        return;
+      }
+      if (!emailRegex.test(email)) {
+        alert("Enter a valid email.");
+        return;
+      }
+      if (!phoneRegex.test(phone)) {
+        alert("Please enter a valid phone number.");
+        return;
+      }
+
+      // If we reach here, validation passed
       const formData = new FormData(form);
 
-      console.log(formData);
-      
+      // Log form data properly
+      console.log("Form Data:");
+      for (let [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+      }
 
-      fetch("mail.php", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.text())
-        .then((data) => {
-          console.log("Server Response:", data);
+      try {
+        const res = await fetch("mail.php", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await res.json();
+        console.log("HTTP Status Code:", data.statusCode);
+        console.log("API Response:", data.apiResponse);
+
+        if (data.statusCode === 200) {
           hidePopup(formOverlay);
           showPopup(thankYouPopup);
           form.reset();
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          alert("Something went wrong. Please try again.");
-        });
+        } else {
+          window.location.href = "error.html";
+        }
+      } catch (err) {
+        console.error("Fetch Error:", err);
+      }
     });
   }
 });
-
-
-
-
-
-
-
 
 // REcruiters
 const marqueeTrack = document.getElementById("marqueeTrack");
@@ -253,7 +206,7 @@ function addImages() {
 addImages();
 addImages();
 
-// Pie chart 
+// Pie chart
 const ctx = document.getElementById("audiencePieChart").getContext("2d");
 new Chart(ctx, {
   type: "pie",
@@ -310,10 +263,12 @@ new Chart(ctx, {
   },
 });
 
-// Go to top button 
-document.getElementById("scrollToTopBtn").addEventListener("click", function () {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+// Go to top button
+document
+  .getElementById("scrollToTopBtn")
+  .addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   });
-});
