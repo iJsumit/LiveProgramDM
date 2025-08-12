@@ -48,7 +48,6 @@ a.header_logo:focus-visible {
 
     header>nav {
         height: 65px;
-
     }
 
     .navbar>.container {
@@ -70,7 +69,7 @@ a.header_logo:focus-visible {
     }
 
     #openFormBtn {
-        width: 100% !important;
+        width: 90% !important;
     }
 
     .mobileHeadingPieChart {
@@ -84,16 +83,11 @@ a.header_logo:focus-visible {
 }
 
 .hero-section {
-    /* background: linear-gradient(135deg, var(--dark-color), #a855f7); */
     background: url('images/heroBanner.jpg') center top/cover no-repeat;
-    min-height: 100vh;
+    min-height: 80vh;
     color: white;
     position: relative;
     overflow: hidden;
-}
-
-.hero-section h1 {
-    padding: 100px 0 30px 0;
 }
 
 .hero-section::before {
@@ -120,6 +114,11 @@ a.header_logo:focus-visible {
     background-clip: text;
 }
 
+.hero-content span {
+    background: rgba(0, 0, 0, .4);
+    border: 1px solid var(--secondary-color);
+}
+
 .keyPoints,
 .Subheadline {
     opacity: 0;
@@ -138,6 +137,21 @@ a.header_logo:focus-visible {
         opacity: 1;
         transform: translateX(0) scale(1);
     }
+}
+
+/* Media Query Hero Section  */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 100vh;
+    }
+
+    .hero-content p {
+        text-align: center;
+    }
+
+ .hero-content span {
+    font-size: 15px !important;
+ }
 }
 
 
