@@ -1,11 +1,3 @@
-const keyPoints = [
-  "Learn Digital Marketing the 2025 Way — with GenAI at the Core",
-  "Small Batch Sizes (50 Only)",
-  "Learn from Industry Leaders with 100% Live Doubt-Solving",
-  "100+ Hours of Live Sessions and Real-World Projects",
-  "Placement Support That Actually Works",
-];
-
 const fileExtensions = {
   1: "jpeg",
   2: "png",
@@ -33,14 +25,6 @@ const fileExtensions = {
   24: "png",
   25: "jpg",
 };
-
-const container = document.getElementById("keyPoint");
-keyPoints.forEach((text) => {
-  const box = document.createElement("strong");
-  box.className = "badge-glow rounded p-3 text-dark";
-  box.innerText = text;
-  container.appendChild(box);
-});
 
 // Add scroll effect to floating elements
 window.addEventListener("scroll", () => {
@@ -108,6 +92,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeFormBtn = document.getElementById("closeFormBtn");
   const closeThanksBtn = document.getElementById("closeThanksBtn");
   const openFormBtn = document.getElementById("openFormBtn");
+  const secondButton = document.getElementById("secondButton");
+  const thirdButton = document.getElementById("thirdButton");
+  const fourthButton = document.getElementById("fourthButton");
   const form = document.getElementById("theForm");
 
   // Helper: Show/Hide popups
@@ -117,6 +104,16 @@ document.addEventListener("DOMContentLoaded", function () {
   // Open form popup
   if (openFormBtn) {
     openFormBtn.addEventListener("click", () => showPopup(formOverlay));
+  }
+
+  if (secondButton) {
+    secondButton.addEventListener("click", () => showPopup(formOverlay));
+  }
+  if (thirdButton) {
+    thirdButton.addEventListener("click", () => showPopup(formOverlay));
+  }
+  if (fourthButton) {
+    fourthButton.addEventListener("click", () => showPopup(formOverlay));
   }
 
   // Close form popup
@@ -263,12 +260,36 @@ new Chart(ctx, {
   },
 });
 
-// Go to top button
-document
-  .getElementById("scrollToTopBtn")
-  .addEventListener("click", function () {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+// Sticky Footer CTA 
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileCTA = document.getElementById("mobile-cta");
+  const heroSection = document.getElementById("heroSection");
+
+  if (mobileCTA && heroSection) {
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 400) {
+        mobileCTA.classList.add("show");
+      } else {
+        mobileCTA.classList.remove("show");
+      }
     });
-  });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to get URL parameter
+    function getParameterByName(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name) || "";
+    }
+
+    // List of UTM parameters
+    const utmParams = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+
+    utmParams.forEach(param => {
+        const value = getParameterByName(param);
+        if (value) {
+            document.getElementById(param).value = value;
+        }
+    });
+});
