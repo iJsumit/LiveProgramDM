@@ -117,7 +117,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center justify-content-center" id="heroSection">
+    <!-- <section class="hero-section" id="heroSection">
         <div class="row hero-content align-items-center">
             <div class="col-md-6 col-sm-12">
                 <h4 class="text-white"><span class="text-danger blinking-text fw-bolder">•</span> Live Program</h4>
@@ -146,6 +146,111 @@
                 <button class="btn btn-hero btn-lg px-5 py-3 w-50" id="openFormBtn">SECURE YOUR SPOT NOW</button>
             </div>
         </div>
+    </section> -->
+
+    <!-- New Hero Section  -->
+    <section class="hero-section" id="heroSection">
+        <div class="container">
+                <div class="row gx-5 align-items-center py-5">
+                    <!-- LEFT: Content -->
+                    <div class="col-lg-6 order-1 order-lg-1 text-center text-lg-start mb-4 mb-lg-0">
+                        <h1 class="display-4 fw-bold heading">FULL STACK DIGITAL MARKETING WITH AI</h1>
+                        <ul class="subheading text-white">
+                            <li>
+                                <i class="bi bi-check2-circle"></i></i>&nbsp;Built by iJaipuria — 80+ Years of Legacy
+                                in Education
+                            </li>
+                            <li>
+                                <i class="bi bi-check2-circle"></i></i>&nbsp;Learn Digital Marketing the 2025 Way —
+                                with GenAI at the Core
+                            </li>
+                            <li>
+                                <i class="bi bi-check2-circle"></i></i>&nbsp;Small Batch
+                                Sizes (50 Only)
+                            </li>
+                            <li>
+                                <i class="bi bi-check2-circle"></i></i>&nbsp;Learn from
+                                Industry Leaders with 100% Live Doubt-Solving
+                            </li>
+                            <li>
+                                <i class="bi bi-check2-circle"></i></i>&nbsp;100+ Hours of
+                                Live Sessions and Real-World Projects
+                            </li>
+                            <li>
+                                <i class="bi bi-check2-circle"></i></i>&nbsp;Placement
+                                Support That <i>Actually</i> Works
+                            </li>
+                        </ul>
+                        <!-- <a href="#" class="btn btn-primary btn-lg mt-4 px-5">Enroll Now</a> -->
+                    </div>
+
+                    <!-- RIGHT: Signup Form -->
+                    <div class="col-lg-6 order-2 order-lg-2">
+                        <div class="card hero-form-card p-4 rounded-4 shadow-lg" id="form-wrapper">
+                            <h5 class="mb-4 text-dark text-center">Join the Program</h5>
+                            <form id="hero-form-ija" action="mail.php" method="POST">
+                                <div class="row g-3">
+                                    <input type="hidden" name="utm_source" id="utm_source">
+                                    <input type="hidden" name="utm_medium" id="utm_medium">
+                                    <input type="hidden" name="utm_campaign" id="utm_campaign">
+                                    <input type="hidden" name="utm_term" id="utm_term">
+                                    <input type="hidden" name="utm_content" id="utm_content">
+                                    <!-- Utm Parameters Capturing -->
+
+                                    <div class="col-md-6">
+                                        <input type="text" name="fName" class="form-control" placeholder="First Name"
+                                            required />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="lName" class="form-control" placeholder="Last Name"
+                                            required />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" name="email" class="form-control"
+                                            placeholder="Email Address" required />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="tel" name="phone" class="form-control" placeholder="Phone Number"
+                                            required />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select name="mx_Experience_Level" class="form-control" required>
+                                            <option value="" disabled selected>Experience</option>
+                                            <!-- <option value="graduate">Graduate</option> -->
+                                            <option value="zero_two">0&ndash;2 years</option>
+                                            <option value="tow_five">2&ndash;5 years</option>
+                                            <option value="five_ten">5&ndash;10 years</option>
+                                            <option value="ten_thirty">10&ndash;30 years</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="city" class="form-control" placeholder="City"
+                                            required />
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Hidden Thank You Message -->
+                        <div id="thank-you-message" class="thank-you-card text-center" style="display: none;">
+                            <div class="thank-you-icon mb-3">
+                                <i class="bi bi-patch-check-fill"></i>
+                            </div>
+                            <h3 class="thank-you-heading">Thank You for Registering!</h3>
+                            <p class="thank-you-subheading">
+                                Your submission has been received. <br> Our team will reach out to you shortly.
+                            </p>
+                            <a href="brochure.pdf" download><button type="button" class="btn btn-primary w-100">Download
+                                    Brochure</button></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
     </section>
 
     <!-- INFO SECTION -->
@@ -666,7 +771,8 @@
                 <div class="card card-elevated mx-auto w-50 mobileCertificate">
                     <div class="card-body">
                         <div class="bg-light rounded p-4">
-                            <img src="images/certificate.webp" alt="iJaipuria Certificate" class="img-fluid shadow-lg" />
+                            <img src="images/certificate.webp" alt="iJaipuria Certificate"
+                                class="img-fluid shadow-lg" />
                         </div>
                     </div>
                 </div>

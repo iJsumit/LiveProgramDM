@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Validation
       if (!nameRegex.test(fName) || !nameRegex.test(lName)) {
-        alert("Names must contain only letters.");
+        alert("Name must contain only letters.");
         return;
       }
       if (!emailRegex.test(email)) {
