@@ -26,63 +26,6 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6VS5DPM" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- Popup Overlay -->
-    <div class="ija-popup-overlay" id="ijaPopup" style="display: none;">
-        <div class="ija-popup-content">
-            <span class="ija-close-btn" id="closeFormBtn">&times;</span>
-            <h2 class="ija-form-title">Register Now</h2>
-            <form class="ija-popup-form" id="theForm">
-                <div class="row g-3">
-                    <input type="hidden" name="utm_source" id="utm_source">
-                    <input type="hidden" name="utm_medium" id="utm_medium">
-                    <input type="hidden" name="utm_campaign" id="utm_campaign">
-                    <input type="hidden" name="utm_term" id="utm_term">
-                    <input type="hidden" name="utm_content" id="utm_content">
-                    <!-- Utm Parameters Capturing -->
-
-                    <div class="col-md-6">
-                        <input type="text" name="fName" class="form-control" placeholder="First Name" required />
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" name="lName" class="form-control" placeholder="Last Name" required />
-                    </div>
-                    <div class="col-md-6">
-                        <input type="email" name="email" class="form-control" placeholder="Email Address" required />
-                    </div>
-                    <div class="col-md-6">
-                        <input type="tel" name="phone" inputmode="numeric" maxlength="10" class="form-control"
-                            placeholder="Phone Number" required />
-                    </div>
-                    <div class="col-md-6">
-                        <select name="experience" class="form-control" required>
-                            <option value="" disabled selected>Experience</option>
-                            <option value="0-2Y">0&ndash;2 years</option>
-                            <option value="2-5Y">2&ndash;5 years</option>
-                            <option value="5-10Y">5&ndash;10 years</option>
-                            <option value="10-30Y">10&ndash;30 years</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" name="city" class="form-control" placeholder="City" required />
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary w-100">
-                            Apply Now
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- Thank You Popup -->
-    <div id="thank-you-popup" class="thank-you-popup" style="display:none;">
-        <div class="thank-you-content position-relative">
-            <span class="ija-close-btn" id="closeThanksBtn">&times;</span>
-            <h2>Thank you!</h2>
-            <p>Your submission has been received. We'll contact you soon.</p>
-            <a id="close-popup-btn" href="brochure.pdf" download>Download Brochure</a>
-        </div>
-    </div>
 
     <!-- HEADER SECTION -->
     <header>
@@ -116,141 +59,108 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <!-- <section class="hero-section" id="heroSection">
-        <div class="row hero-content align-items-center">
-            <div class="col-md-6 col-sm-12">
-                <h4 class="text-white"><span class="text-danger blinking-text fw-bolder">•</span> Live Program</h4>
-                <h1 class="display-2 fw-bold gradient-text">FULL STACK<br />DIGITAL MARKETING<br />WITH AI</h1>
-                <p class="fs-3 rounded Subheadline my-5">
-                    <span class="rounded p-2 text-white tagline"> Built by iJaipuria — 80+ Years of Legacy in
-                        Education</span>
-                </p>
-            </div>
-            <div class="col-md-6 col-sm-12 keyPoints">
-                <ul class="px-2 mx-3">
-                    <li><i class="bi bi-check2-all"></i>&nbsp;Learn Digital Marketing the 2025 Way — with GenAI at the
-                        Core</li>
-                    <hr>
-                    <li><i class="bi bi-check2-all"></i>&nbsp;Small Batch Sizes (50 Only)</li>
-                    <hr>
-                    <li><i class="bi bi-check2-all"></i>&nbsp;Learn from Industry Leaders with 100% Live Doubt-Solving
-                    </li>
-                    <hr>
-                    <li><i class="bi bi-check2-all"></i>&nbsp;100+ Hours of Live Sessions and Real-World Projects</li>
-                    <hr>
-                    <li><i class="bi bi-check2-all"></i>&nbsp;Placement Support That Actually Works</li>
-                </ul>
-            </div>
-            <div class="col-md-12 heroBtn">
-                <button class="btn btn-hero btn-lg px-5 py-3 w-50" id="openFormBtn">SECURE YOUR SPOT NOW</button>
-            </div>
-        </div>
-    </section> -->
-
     <!-- New Hero Section  -->
     <section class="hero-section" id="heroSection">
         <div class="container">
-                <div class="row gx-5 align-items-center py-5">
-                    <!-- LEFT: Content -->
-                    <div class="col-lg-6 order-1 order-lg-1 text-center text-lg-start mb-4 mb-lg-0">
-                        <h1 class="display-4 fw-bold heading">FULL STACK DIGITAL MARKETING WITH AI</h1>
-                        <ul class="subheading text-white">
-                            <li>
-                                <i class="bi bi-check2-circle"></i></i>&nbsp;Built by iJaipuria — 80+ Years of Legacy
-                                in Education
-                            </li>
-                            <li>
-                                <i class="bi bi-check2-circle"></i></i>&nbsp;Learn Digital Marketing the 2025 Way —
-                                with GenAI at the Core
-                            </li>
-                            <li>
-                                <i class="bi bi-check2-circle"></i></i>&nbsp;Small Batch
-                                Sizes (50 Only)
-                            </li>
-                            <li>
-                                <i class="bi bi-check2-circle"></i></i>&nbsp;Learn from
-                                Industry Leaders with 100% Live Doubt-Solving
-                            </li>
-                            <li>
-                                <i class="bi bi-check2-circle"></i></i>&nbsp;100+ Hours of
-                                Live Sessions and Real-World Projects
-                            </li>
-                            <li>
-                                <i class="bi bi-check2-circle"></i></i>&nbsp;Placement
-                                Support That <i>Actually</i> Works
-                            </li>
-                        </ul>
-                        <!-- <a href="#" class="btn btn-primary btn-lg mt-4 px-5">Enroll Now</a> -->
-                    </div>
+            <div class="row gx-5 align-items-center py-5">
+                <!-- LEFT: Content -->
+                <div class="col-lg-6 order-1 order-lg-1 text-lg-start mb-4 mb-lg-0">
+                    <p class="text-white"><span class="blinking-text text-danger">• </span>LIVE</p>
+                    <h1 class="display-4 fw-bold heading">FULL STACK DIGITAL MARKETING WITH AI</h1>
+                    <ul class="subheading text-white">
+                        <li>
+                            <i class="bi bi-check2-circle"></i></i>&nbsp;Built by iJaipuria — 80+ Years of Legacy
+                            in Education
+                        </li>
+                        <li>
+                            <i class="bi bi-check2-circle"></i></i>&nbsp;Learn Digital Marketing the 2025 Way —
+                            with GenAI at the Core
+                        </li>
+                        <li>
+                            <i class="bi bi-check2-circle"></i></i>&nbsp;Small Batch
+                            Sizes (50 Only)
+                        </li>
+                        <li>
+                            <i class="bi bi-check2-circle"></i></i>&nbsp;Learn from
+                            Industry Leaders with 100% Live Doubt-Solving
+                        </li>
+                        <li>
+                            <i class="bi bi-check2-circle"></i></i>&nbsp;100+ Hours of
+                            Live Sessions and Real-World Projects
+                        </li>
+                        <li>
+                            <i class="bi bi-check2-circle"></i></i>&nbsp;Placement
+                            Support That <i>Actually</i> Works
+                        </li>
+                    </ul>
+                    <!-- <a href="#" class="btn btn-primary btn-lg mt-4 px-5">Enroll Now</a> -->
+                </div>
 
-                    <!-- RIGHT: Signup Form -->
-                    <div class="col-lg-6 order-2 order-lg-2">
-                        <div class="card hero-form-card p-4 rounded-4 shadow-lg" id="form-wrapper">
-                            <h5 class="mb-4 text-dark text-center">Join the Program</h5>
-                            <form id="hero-form-ija" action="mail.php" method="POST">
-                                <div class="row g-3">
-                                    <input type="hidden" name="utm_source" id="utm_source">
-                                    <input type="hidden" name="utm_medium" id="utm_medium">
-                                    <input type="hidden" name="utm_campaign" id="utm_campaign">
-                                    <input type="hidden" name="utm_term" id="utm_term">
-                                    <input type="hidden" name="utm_content" id="utm_content">
-                                    <!-- Utm Parameters Capturing -->
+                <!-- RIGHT: Signup Form -->
+                <div class="col-lg-6 order-2 order-lg-2">
+                    <div class="card hero-form-card p-4 rounded-4 shadow-lg" id="form-wrapper">
+                        <h5 class="mb-4 text-dark text-center">Join the Program</h5>
+                        <form id="theForm">
+                            <div class="row g-3">
+                                <input type="hidden" name="utm_source" id="utm_source">
+                                <input type="hidden" name="utm_medium" id="utm_medium">
+                                <input type="hidden" name="utm_campaign" id="utm_campaign">
+                                <input type="hidden" name="utm_term" id="utm_term">
+                                <input type="hidden" name="utm_content" id="utm_content">
+                                <!-- Utm Parameters Capturing -->
 
-                                    <div class="col-md-6">
-                                        <input type="text" name="fName" class="form-control" placeholder="First Name"
-                                            required />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" name="lName" class="form-control" placeholder="Last Name"
-                                            required />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="email" name="email" class="form-control"
-                                            placeholder="Email Address" required />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="tel" name="phone" class="form-control" placeholder="Phone Number"
-                                            required />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <select name="mx_Experience_Level" class="form-control" required>
-                                            <option value="" disabled selected>Experience</option>
-                                            <!-- <option value="graduate">Graduate</option> -->
-                                            <option value="zero_two">0&ndash;2 years</option>
-                                            <option value="tow_five">2&ndash;5 years</option>
-                                            <option value="five_ten">5&ndash;10 years</option>
-                                            <option value="ten_thirty">10&ndash;30 years</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" name="city" class="form-control" placeholder="City"
-                                            required />
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn">
-                                            Apply Now
-                                        </button>
-                                    </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="fName" class="form-control" placeholder="First Name"
+                                        required />
                                 </div>
-                            </form>
-                        </div>
-                        <!-- Hidden Thank You Message -->
-                        <div id="thank-you-message" class="thank-you-card text-center" style="display: none;">
-                            <div class="thank-you-icon mb-3">
-                                <i class="bi bi-patch-check-fill"></i>
+                                <div class="col-md-6">
+                                    <input type="text" name="lName" class="form-control" placeholder="Last Name"
+                                        required />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" name="email" class="form-control" placeholder="Email Address"
+                                        required />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number"
+                                        required />
+                                </div>
+                                <div class="col-md-6">
+                                    <select name="mx_Experience_Level" class="form-control" required>
+                                        <option value="" disabled selected>Experience</option>
+                                        <!-- <option value="graduate">Graduate</option> -->
+                                        <option value="0-2Y">0&ndash;2 years</option>
+                                        <option value="2-5Y">2&ndash;5 years</option>
+                                        <option value="5-10Y">5&ndash;10 years</option>
+                                        <option value="10-30Y">10&ndash;30 years</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="city" class="form-control" placeholder="City" required />
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn">
+                                        Apply Now
+                                    </button>
+                                </div>
                             </div>
-                            <h3 class="thank-you-heading">Thank You for Registering!</h3>
-                            <p class="thank-you-subheading">
-                                Your submission has been received. <br> Our team will reach out to you shortly.
-                            </p>
-                            <a href="brochure.pdf" download><button type="button" class="btn btn-primary w-100">Download
-                                    Brochure</button></a>
-
+                        </form>
+                    </div>
+                    <!-- Hidden Thank You Message -->
+                    <div id="thank-you-message" class="card p-4 rounded-4 shadow-lg text-center" style="display: none;">
+                        <div class="thank-you-icon mb-3">
+                            <i class="bi bi-patch-check-fill"></i>
                         </div>
+                        <h3 class="thank-you-heading">Thank You for Registering!</h3>
+                        <p class="thank-you-subheading">
+                            Your submission has been received. <br> Our team will reach out to you shortly.
+                        </p>
+                        <a href="brochure.pdf" class="btn w-100" download>Download Brochure</a>
+
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- INFO SECTION -->
@@ -776,7 +686,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-hero btn-lg mt-5 w-50" id="secondButton">Get Your's Now</button>
+                <a class="btn btn-hero btn-lg mt-5 w-50" href="#heroSection">Get Your's Now</a>
             </div>
             <hr>
 
@@ -996,9 +906,9 @@
                 <div class="card card-elevated mx-auto" style="max-width: 500px">
                     <div class="card-body text-center">
                         <h3 class="h4 fw-bold mb-4">Lead the wave. Don't chase it.</h3>
-                        <button class="btn btn-hero btn-lg mb-3" id="thirdButton">
+                        <a class="btn btn-hero btn-lg mb-3" href="#heroSection">
                             SECURE YOUR SPOT BEFORE PRICE INCREASE
-                        </button>
+                        </a>
                         <p class="small text-muted mb-0">
                             Limited seats available • Price increases after next batch
                         </p>
@@ -1107,7 +1017,7 @@
     <!-- Sticky Mobile CTA -->
     <div class="mobile-cta" id="mobile-cta">
         <!-- <p class="cta-title text-white">Lead the wave. Don't chase it.</p> -->
-        <a class="cta-btn" id="fourthButton">SECURE YOUR SPOT</a>
+        <a class="cta-btn" href="#heroSection">SECURE YOUR SPOT</a>
         <p class="cta-sub">Limited seats available • Price increases after next batch</p>
     </div>
 

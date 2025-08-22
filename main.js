@@ -1,31 +1,3 @@
-const fileExtensions = {
-  1: "jpeg",
-  2: "png",
-  3: "png",
-  4: "jpg",
-  5: "png",
-  6: "png",
-  7: "jpg",
-  8: "jpg",
-  9: "png",
-  10: "jpeg",
-  11: "png",
-  12: "png",
-  13: "png",
-  14: "jpeg",
-  15: "png",
-  16: "png",
-  17: "jpg",
-  18: "jpeg",
-  19: "png",
-  20: "png",
-  21: "png",
-  22: "jpg",
-  23: "png",
-  24: "png",
-  25: "jpg",
-};
-
 // Add scroll effect to floating elements
 window.addEventListener("scroll", () => {
   const scrolled = window.pageYOffset;
@@ -85,117 +57,82 @@ document
   });
 
 // Form Logic
-document.addEventListener("DOMContentLoaded", function () {
-  // Grab elements
-  const formOverlay = document.querySelector(".ija-popup-overlay");
-  const thankYouPopup = document.getElementById("thank-you-popup");
-  const closeFormBtn = document.getElementById("closeFormBtn");
-  const closeThanksBtn = document.getElementById("closeThanksBtn");
-  const openFormBtn = document.getElementById("openFormBtn");
-  const secondButton = document.getElementById("secondButton");
-  const thirdButton = document.getElementById("thirdButton");
-  const fourthButton = document.getElementById("fourthButton");
+document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("theForm");
+  const submitBtn = form.querySelector("button[type='submit']");
 
-  // Helper: Show/Hide popups
-  const showPopup = (el) => el && (el.style.display = "flex");
-  const hidePopup = (el) => el && (el.style.display = "none");
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  // Open form popup
-  if (openFormBtn) {
-    openFormBtn.addEventListener("click", () => showPopup(formOverlay));
-  }
+    // Regex patterns
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[6-9]\d{9}$/;
 
-  if (secondButton) {
-    secondButton.addEventListener("click", () => showPopup(formOverlay));
-  }
-  if (thirdButton) {
-    thirdButton.addEventListener("click", () => showPopup(formOverlay));
-  }
-  if (fourthButton) {
-    fourthButton.addEventListener("click", () => showPopup(formOverlay));
-  }
+    // Values
+    const fName = form.fName.value.trim();
+    const lName = form.lName.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
 
-  // Close form popup
-  if (closeFormBtn) {
-    closeFormBtn.addEventListener("click", () => hidePopup(formOverlay));
-  }
+    // Validation
+    if (!nameRegex.test(fName) || !nameRegex.test(lName)) {
+      alert("Name must contain only letters.");
+      return;
+    }
+    if (!emailRegex.test(email)) {
+      alert("Enter a valid email.");
+      return;
+    }
+    if (!phoneRegex.test(phone)) {
+      alert("Please enter a valid phone number.");
+      return;
+    }
 
-  // Close thank-you popup
-  if (closeThanksBtn) {
-    closeThanksBtn.addEventListener("click", () => hidePopup(thankYouPopup));
-  }
+    // If we reach here, validation passed
+    const formData = new FormData(form);
 
-  // Form submission (validation + sending)
-  if (form) {
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault(); // Always stop default until validation passes
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
 
-      // Regex patterns
-      const nameRegex = /^[A-Za-z\s]+$/;
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const phoneRegex = /^[6-9]\d{9}$/;
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Submitting...";
+    sessionStorage.setItem("formSubmitted", "true");
 
-      // Values
-      const fName = form.fName.value.trim();
-      const lName = form.lName.value.trim();
-      const email = form.email.value.trim();
-      const phone = form.phone.value.trim();
+    try {
+      const res = await fetch("mail.php", {
+        method: "POST",
+        body: formData,
+      });
 
-      // Validation
-      if (!nameRegex.test(fName) || !nameRegex.test(lName)) {
-        alert("Name must contain only letters.");
-        return;
-      }
-      if (!emailRegex.test(email)) {
-        alert("Enter a valid email.");
-        return;
-      }
-      if (!phoneRegex.test(phone)) {
-        alert("Please enter a valid phone number.");
-        return;
-      }
+      const data = await res.json();
+      console.log("HTTP Status Code:", data.statusCode);
+      console.log("API Response:", data.apiResponse);
 
-      // If we reach here, validation passed
-      const formData = new FormData(form);
-
-      // Log form data properly
-      console.log("Form Data:");
-      for (let [key, value] of formData.entries()) {
-        console.log(`${key}: ${value}`);
-      }
-
-      try {
-        const res = await fetch("mail.php", {
-          method: "POST",
-          body: formData,
-        });
-
-        const data = await res.json();
-        console.log("HTTP Status Code:", data.statusCode);
-        console.log("API Response:", data.apiResponse);
-
-        if (data.statusCode === 200) {
-          hidePopup(formOverlay);
-          showPopup(thankYouPopup);
-          form.reset();
-        } else {
-          window.location.href = "error.html";
+      if (data.statusCode === 200) {
+        // On page load after submission: show thank you, hide form
+        if (sessionStorage.getItem("formSubmitted") === "true") {
+          document.getElementById("form-wrapper").style.display = "none";
+          document.getElementById("thank-you-message").style.display = "block";
+          sessionStorage.removeItem("formSubmitted");
         }
-      } catch (err) {
-        console.error("Fetch Error:", err);
+        form.reset();
+      } else {
+        window.location.href = "error.html";
       }
-    });
-  }
+    } catch (err) {
+      console.error("Fetch Error:", err);
+    }
+  });
 });
 
 // REcruiters
 const marqueeTrack = document.getElementById("marqueeTrack");
 function addImages() {
   for (let i = 1; i <= 25; i++) {
-    const ext = fileExtensions[i];
     const img = document.createElement("img");
-    img.src = `images/recruiters/${i}.${ext}`;
+    img.src = `images/recruiters/${i}.png`;
     img.alt = `Recruiter ${i}`;
     marqueeTrack.appendChild(img);
   }
@@ -277,19 +214,19 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Function to get URL parameter
-    function getParameterByName(name) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name) || "";
+  // Function to get URL parameter
+  function getParameterByName(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name) || "";
+  }
+
+  // List of UTM parameters
+  const utmParams = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+
+  utmParams.forEach(param => {
+    const value = getParameterByName(param);
+    if (value) {
+      document.getElementById(param).value = value;
     }
-
-    // List of UTM parameters
-    const utmParams = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
-
-    utmParams.forEach(param => {
-        const value = getParameterByName(param);
-        if (value) {
-            document.getElementById(param).value = value;
-        }
-    });
+  });
 });
