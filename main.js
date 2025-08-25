@@ -56,6 +56,15 @@ document
     observer.observe(el);
   });
 
+document
+  .querySelectorAll(".HeroInfo")
+  .forEach((el) => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(-20px)";
+    el.style.transition = "all 0.6s ease";
+    observer.observe(el);
+  });
+
 // Form Logic
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("theForm");
