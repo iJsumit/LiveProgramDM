@@ -52,6 +52,7 @@ a.header_logo:focus-visible {
     outline: none;
 }
 
+
 /* Media Query For Header Section  */
 @media (max-width: 768px) {
 
@@ -202,9 +203,8 @@ a.header_logo:focus-visible {
 
     .hero-section ul li {
         font-size: 0.875rem;
-        border-radius: 5px;
-        margin: 5px 0;
-        padding: 0 10px;
+        margin-bottom: 10px;
+        background: none !important;
     }
 
     .col-rev-mobile {
